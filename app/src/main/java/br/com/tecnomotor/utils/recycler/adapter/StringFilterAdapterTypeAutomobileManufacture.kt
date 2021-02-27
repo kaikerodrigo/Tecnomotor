@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 class StringFilterAdapterTypeAutomobileManufacture(
     private val filterList: ArrayList<String>,
     val context: Context,
-    val textInputEditText: TextInputEditText
+    private val textInputEditText: TextInputEditText
 ) : RecyclerView.Adapter<StringFilterAdapterTypeAutomobileManufacture.ViewHolder>() {
     private var lastCheckedPosition = -1
 
@@ -35,14 +35,15 @@ class StringFilterAdapterTypeAutomobileManufacture(
         holder.radioButton.isChecked = position == lastCheckedPosition
         holder.radioButton.setOnClickListener {
             if (position == lastCheckedPosition) {
+                textInputEditText.setText(context.getString(R.string.type_automobile_manufacturer_place_holder))
                 holder.radioButton.isChecked = false
                 lastCheckedPosition = -1
             } else {
+                textInputEditText.setText(filterList[position])
                 lastCheckedPosition = position
                 notifyDataSetChanged()
             }
 
-            textInputEditText.setText(filterList[position])
         }
 
 
