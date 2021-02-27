@@ -105,7 +105,8 @@
         android:id="@+id/txt_view_title_demonstration_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="texto"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
         android:textAlignment="center" />
 
     <androidx.recyclerview.widget.RecyclerView

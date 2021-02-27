@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,8 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val txtViewTitleDemonstrationInformation = root.findViewById<TextView>(R.id.txt_view_title_demonstration_information)
+
         val btnTypeVehicleManufacturer = root.findViewById<Button>(R.id.btn_type_vehicle_manufacturer)
         val edtTypeVehicleManufacturer = root.findViewById<TextInputEditText>(R.id.edt_type_vehicle_manufacturer)
 
@@ -32,9 +35,11 @@ class HomeFragment : Fragment() {
         val layoutManager = LinearLayoutManager(root.context)
         val listRecyclerView: RecyclerView = root.findViewById(R.id.list_recycler_view_demonstration_information)
 
+
         listRecyclerView.layoutManager = layoutManager
 
         btnTypeVehicleManufacturer.setOnClickListener {
+            txtViewTitleDemonstrationInformation.text = root.context.getString(R.string.type_vehicle_manufacturer_place_holder)
             TypeVehicleManufacture().getTypeVehicleManufacture(
                 listRecyclerView,
                 root.context,
@@ -44,6 +49,7 @@ class HomeFragment : Fragment() {
 
 
         btnVehicleManufacturer.setOnClickListener {
+            txtViewTitleDemonstrationInformation.text = root.context.getString(R.string.vehicle_manufacturer_place_holder)
             VehicleManufacture().getVehicleManufacture(
                 listRecyclerView,
                 root.context,

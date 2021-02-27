@@ -7,13 +7,11 @@ import br.com.tecnomotor.model.Montadora
 import br.com.tecnomotor.retrofit.BasicClient
 import br.com.tecnomotor.retrofit.interfaceApi.VehicleManufactureInterface
 import br.com.tecnomotor.utils.Constant.URL_INIT
-import br.com.tecnomotor.utils.recycler.adapter.StringFilterAdapterTypeVehicleManufacture
 import br.com.tecnomotor.utils.recycler.adapter.StringFilterAdapterVehicleManufacture
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
 class VehicleManufacture {
     val TAG: String = VehicleManufacture::class.java.simpleName
