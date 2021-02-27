@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import br.com.tecnomotor.retrofit.BasicClient
-import br.com.tecnomotor.retrofit.interfaceApi.TypeAutomobileManufactureInterface
+import br.com.tecnomotor.retrofit.interfaceApi.TypeVehicleManufactureInterface
 import br.com.tecnomotor.utils.Constant.URL_INIT
 import br.com.tecnomotor.utils.recycler.adapter.StringFilterAdapterTypeVehicleManufacture
 import com.google.android.material.textfield.TextInputEditText
@@ -13,16 +13,16 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Exception
 
-class TypeAutomobileManufacture {
-    val TAG: String = TypeAutomobileManufacture::class.java.simpleName
+class TypeVehicleManufacture {
+    val TAG: String = TypeVehicleManufacture::class.java.simpleName
 
-    fun getTypeAutomobileManufacture(
+    fun getTypeVehicleManufacture(
         listRecyclerView: RecyclerView,
         context: Context,
         textInputEditText: TextInputEditText
     ) {
-        val call = BasicClient<TypeAutomobileManufactureInterface>(URL_INIT)
-            .create(TypeAutomobileManufactureInterface::class.java)
+        val call = BasicClient<TypeVehicleManufactureInterface>(URL_INIT)
+            .create(TypeVehicleManufactureInterface::class.java)
             .getTypeAutomobileManufacture()
         try {
             call.enqueue(object : Callback<ArrayList<String>> {
@@ -38,21 +38,21 @@ class TypeAutomobileManufacture {
                         val list = response.body()
                         if (!list.isNullOrEmpty()) {
 
-                            val stringFilterAdapterTypeAutomobileManufacture =
+                            val stringFilterAdapterTypeVehicleManufacture =
                                 StringFilterAdapterTypeVehicleManufacture(
                                     list,
                                     context,
                                     textInputEditText
                                 )
-                            listRecyclerView.adapter = stringFilterAdapterTypeAutomobileManufacture
+                            listRecyclerView.adapter = stringFilterAdapterTypeVehicleManufacture
                         } else {
-                            val stringFilterAdapterTypeAutomobileManufacture =
+                            val stringFilterAdapterTypeVehicleManufacture =
                                 StringFilterAdapterTypeVehicleManufacture(
                                     ArrayList(),
                                     context,
                                     textInputEditText
                                 )
-                            listRecyclerView.adapter = stringFilterAdapterTypeAutomobileManufacture
+                            listRecyclerView.adapter = stringFilterAdapterTypeVehicleManufacture
                         }
                     }
                 }

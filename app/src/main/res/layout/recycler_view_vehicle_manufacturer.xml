@@ -12,4 +12,12 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <RadioButton
+        android:id="@+id/radio_button_vehicle_manufacturer_recycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_vehicle_manufacturer_recycler"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,4 +6,6 @@ class Montadora : Serializable {
     var id = 0
     var nome: String? = null
     var tipo: String? = null
+    var nomeSpa: String? = null
+    var nomeEng: String? = null
 }
