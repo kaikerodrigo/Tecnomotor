@@ -11,7 +11,6 @@ import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
 
 class TypeVehicleManufacture {
     val TAG: String = TypeVehicleManufacture::class.java.simpleName
@@ -37,7 +36,6 @@ class TypeVehicleManufacture {
                     if (response.isSuccessful) {
                         val list = response.body()
                         if (!list.isNullOrEmpty()) {
-
                             val stringFilterAdapterTypeVehicleManufacture =
                                 StringFilterAdapterTypeVehicleManufacture(
                                     list,

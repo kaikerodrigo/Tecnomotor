@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import br.com.tecnomotor.dao.DataBaseHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         val actionBar: ActionBar? = supportActionBar
         actionBar!!.hide()
         setContentView(R.layout.activity_main)
+
+        var dataBaseHelper: DataBaseHelper? = DataBaseHelper(this)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 

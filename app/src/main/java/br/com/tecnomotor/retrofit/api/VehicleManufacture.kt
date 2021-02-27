@@ -3,6 +3,7 @@ package br.com.tecnomotor.retrofit.api
 import android.content.Context
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
+import br.com.tecnomotor.dao.impl.MontadoraDaoImpl
 import br.com.tecnomotor.model.Montadora
 import br.com.tecnomotor.retrofit.BasicClient
 import br.com.tecnomotor.retrofit.interfaceApi.VehicleManufactureInterface
@@ -41,6 +42,17 @@ class VehicleManufacture {
                     if (response.isSuccessful) {
                         val list = response.body()
                         if (!list.isNullOrEmpty()) {
+                            val montadoraDao = MontadoraDaoImpl(context)
+                            list.forEach {
+                                val listAll = montadoraDao.all
+                                if (!listAll.isNullOrEmpty()) {
+                                    if (montadoraDao.findById(it.id!!) == null) {
+                                        montadoraDao.insert(it)
+                                    } else {
+                                        montadoraDao.update(it)
+                                    }
+                                }
+                            }
 
                             val stringFilterAdapterVehicleManufacture =
                                 StringFilterAdapterVehicleManufacture(
