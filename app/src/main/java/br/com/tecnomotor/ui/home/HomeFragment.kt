@@ -25,8 +25,8 @@ class HomeFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val btnTypeAutomobileManufacturer = root.findViewById<Button>(R.id.btn_type_automobile_manufacturer)
-        val edtTypeAutomobileManufacturer = root.findViewById<TextInputEditText>(R.id.edt_type_automobile_manufacturer)
+        val btnTypeAutomobileManufacturer = root.findViewById<Button>(R.id.btn_type_vehicle_manufacturer)
+        val edtTypeAutomobileManufacturer = root.findViewById<TextInputEditText>(R.id.edt_type_vehicle_manufacturer)
 
         val layoutManager = LinearLayoutManager(root.context)
         val listRecyclerView: RecyclerView = root.findViewById(R.id.list_recycler_view_demonstration_information)

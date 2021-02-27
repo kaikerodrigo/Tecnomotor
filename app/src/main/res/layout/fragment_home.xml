@@ -8,63 +8,63 @@
     tools:context=".ui.home.HomeFragment">
 
     <RelativeLayout
-        android:id="@+id/relative_type_automobile_manufacturer"
+        android:id="@+id/relative_type_vehicle_manufacturer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lbl_type_automobile_manufacturer"
+            android:id="@+id/lbl_type_vehicle_manufacturer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/type_automobile_manufacturer"
+            android:hint="@string/type_vehicle_manufacturer"
             android:theme="@style/myAppTheme"
             app:boxBackgroundColor="@android:color/transparent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_type_automobile_manufacturer"
+                android:id="@+id/edt_type_vehicle_manufacturer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="@string/type_automobile_manufacturer_place_holder" />
+                android:text="@string/type_vehicle_manufacturer_place_holder" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btn_type_automobile_manufacturer"
+            android:id="@+id/btn_type_vehicle_manufacturer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/lbl_type_automobile_manufacturer"
+            android:layout_alignEnd="@+id/lbl_type_vehicle_manufacturer"
             android:layout_marginStart="2dp"
             android:text="@string/select" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relative_automobile_manufacturer"
+        android:id="@+id/relative_vehicle_manufacturer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/lbl_automobile_manufacturer"
+            android:id="@+id/lbl_vehicle_manufacturer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/automobile_manufacturer"
+            android:hint="@string/vehicle_manufacturer"
             android:textSize="14sp"
             android:theme="@style/myAppTheme"
             app:boxBackgroundColor="@android:color/transparent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_automobile_manufacturer"
+                android:id="@+id/edt_vehicle_manufacturer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="@string/automobile_manufacturer_place_holder" />
+                android:text="@string/vehicle_manufacturer_place_holder" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/lbl_automobile_manufacturer"
+            android:layout_alignEnd="@+id/lbl_vehicle_manufacturer"
             android:layout_marginStart="2dp"
             android:text="@string/select" />
     </RelativeLayout>

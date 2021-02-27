@@ -3,11 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="type_automobile_manufacturer">Tipo de montadora</string>
-    <string name="type_automobile_manufacturer_place_holder">Selecione o tipo de montadora</string>
+    <string name="type_vehicle_manufacturer">Tipo de montadora</string>
+    <string name="type_vehicle_manufacturer_place_holder">Selecione o tipo de montadora</string>
     <string name="select">Selecionar</string>
-    <string name="automobile_manufacturer">Montadora</string>
-    <string name="automobile_manufacturer_place_holder">Selecione a montadora</string>
+    <string name="vehicle_manufacturer">Montadora</string>
+    <string name="vehicle_manufacturer_place_holder">Selecione a montadora</string>
     <string name="vehicle">Veículo</string>
     <string name="vehicle_place_holder">Selecione o veículo</string>
 </resources>

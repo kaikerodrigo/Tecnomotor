@@ -8,34 +8,33 @@ import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.tecnomotor.R
-import br.com.tecnomotor.model.interfaceDate.OnEditTextChanged
 import com.google.android.material.textfield.TextInputEditText
 
-class StringFilterAdapterTypeAutomobileManufacture(
+class StringFilterAdapterTypeVehicleManufacture(
     private val filterList: ArrayList<String>,
     val context: Context,
     private val textInputEditText: TextInputEditText
-) : RecyclerView.Adapter<StringFilterAdapterTypeAutomobileManufacture.ViewHolder>() {
+) : RecyclerView.Adapter<StringFilterAdapterTypeVehicleManufacture.ViewHolder>() {
     private var lastCheckedPosition = -1
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): StringFilterAdapterTypeAutomobileManufacture.ViewHolder {
+    ): StringFilterAdapterTypeVehicleManufacture.ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recycler_view_type_automobile_manufacturer, parent, false)
+            .inflate(R.layout.recycler_view_type_vehicle_manufacturer, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: StringFilterAdapterTypeAutomobileManufacture.ViewHolder,
+        holder: StringFilterAdapterTypeVehicleManufacture.ViewHolder,
         position: Int
     ) {
         holder.typeAutomobileManufacturer.text = filterList[position]
         holder.radioButton.isChecked = position == lastCheckedPosition
         holder.radioButton.setOnClickListener {
             if (position == lastCheckedPosition) {
-                textInputEditText.setText(context.getString(R.string.type_automobile_manufacturer_place_holder))
+                textInputEditText.setText(context.getString(R.string.type_vehicle_manufacturer_place_holder))
                 holder.radioButton.isChecked = false
                 lastCheckedPosition = -1
             } else {
@@ -55,8 +54,8 @@ class StringFilterAdapterTypeAutomobileManufacture(
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val typeAutomobileManufacturer: TextView =
-            view.findViewById<View>(R.id.txt_type_automobile_manufacturer) as TextView
+            view.findViewById<View>(R.id.txt_type_vehicle_manufacturer) as TextView
         var radioButton: RadioButton =
-            view.findViewById<View>(R.id.radio_button_type_automobile_manufacturer_recycler) as RadioButton
+            view.findViewById<View>(R.id.radio_button_type_vehicle_manufacturer_recycler) as RadioButton
     }
 }

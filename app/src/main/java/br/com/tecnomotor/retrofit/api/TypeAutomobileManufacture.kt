@@ -3,11 +3,10 @@ package br.com.tecnomotor.retrofit.api
 import android.content.Context
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
-import br.com.tecnomotor.model.interfaceDate.OnEditTextChanged
 import br.com.tecnomotor.retrofit.BasicClient
 import br.com.tecnomotor.retrofit.interfaceApi.TypeAutomobileManufactureInterface
 import br.com.tecnomotor.utils.Constant.URL_INIT
-import br.com.tecnomotor.utils.recycler.adapter.StringFilterAdapterTypeAutomobileManufacture
+import br.com.tecnomotor.utils.recycler.adapter.StringFilterAdapterTypeVehicleManufacture
 import com.google.android.material.textfield.TextInputEditText
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,7 +39,7 @@ class TypeAutomobileManufacture {
                         if (!list.isNullOrEmpty()) {
 
                             val stringFilterAdapterTypeAutomobileManufacture =
-                                StringFilterAdapterTypeAutomobileManufacture(
+                                StringFilterAdapterTypeVehicleManufacture(
                                     list,
                                     context,
                                     textInputEditText
@@ -48,7 +47,7 @@ class TypeAutomobileManufacture {
                             listRecyclerView.adapter = stringFilterAdapterTypeAutomobileManufacture
                         } else {
                             val stringFilterAdapterTypeAutomobileManufacture =
-                                StringFilterAdapterTypeAutomobileManufacture(
+                                StringFilterAdapterTypeVehicleManufacture(
                                     ArrayList(),
                                     context,
                                     textInputEditText
