@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Tecnomotor</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Início</string>
     <string name="type_vehicle_manufacturer">Tipo de montadora</string>
     <string name="type_vehicle_manufacturer_place_holder">Selecione o tipo de montadora</string>
     <string name="select">Selecionar</string>
@@ -10,4 +8,5 @@
     <string name="vehicle_manufacturer_place_holder">Selecione a montadora</string>
     <string name="vehicle">Veículo</string>
     <string name="vehicle_place_holder">Selecione o veículo</string>
+    <string name="title_search">Pesquisa</string>
 </resources>

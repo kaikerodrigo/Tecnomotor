@@ -10,7 +10,7 @@ import com.j256.ormlite.table.TableUtils
 import java.sql.SQLException
 
 open class DataBaseHelper(context: Context?) :
-    OrmLiteSqliteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+        OrmLiteSqliteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         private val TAG = DataBaseHelper::class.java.simpleName
@@ -23,7 +23,7 @@ open class DataBaseHelper(context: Context?) :
     private var modulosDao: Dao<Modulos, Int>? = null
     private var montadoraDao: Dao<Montadora, Int>? = null
     private var motorizacaoDao: Dao<Motorizacao, Int>? = null
-    private var pmDao: Dao<Pm, Int>? = null
+    private var aPmDao: Dao<Pm, Int>? = null
     private var sistemaDao: Dao<Sistema, Int>? = null
     private var tipoSistemaDao: Dao<TipoSistema, Int>? = null
     private var veiculoDao: Dao<Veiculo, Int>? = null
@@ -31,20 +31,21 @@ open class DataBaseHelper(context: Context?) :
 
     override fun onCreate(database: SQLiteDatabase?, connectionSource: ConnectionSource?) {
         TableUtils.createTableIfNotExists(connectionSource, Conector::class.java)
-        TableUtils.createTableIfNotExists(connectionSource, AplicacaoConectorList::class.java)
         TableUtils.createTableIfNotExists(connectionSource, Modulos::class.java)
         TableUtils.createTableIfNotExists(connectionSource, Montadora::class.java)
         TableUtils.createTableIfNotExists(connectionSource, Motorizacao::class.java)
         TableUtils.createTableIfNotExists(connectionSource, Sistema::class.java)
         TableUtils.createTableIfNotExists(connectionSource, TipoSistema::class.java)
         TableUtils.createTableIfNotExists(connectionSource, Veiculo::class.java)
+//        TableUtils.createTableIfNotExists(connectionSource, AplicacaoConectorList::class.java)
+//        TableUtils.createTableIfNotExists(connectionSource, Pm::class.java)
     }
 
     override fun onUpgrade(
-        database: SQLiteDatabase?,
-        connectionSource: ConnectionSource?,
-        oldVersion: Int,
-        newVersion: Int
+            database: SQLiteDatabase?,
+            connectionSource: ConnectionSource?,
+            oldVersion: Int,
+            newVersion: Int
     ) {
         when (DATABASE_VERSION) {
             1 -> onCreate(database, connectionSource)
@@ -58,7 +59,7 @@ open class DataBaseHelper(context: Context?) :
         modulosDao = null
         montadoraDao = null
         motorizacaoDao = null
-        pmDao = null
+        aPmDao = null
         sistemaDao = null
         tipoSistemaDao = null
         veiculoDao = null
@@ -106,10 +107,10 @@ open class DataBaseHelper(context: Context?) :
 
     @Throws(SQLException::class)
     fun getPmDao(): Dao<Pm, Int>? {
-        if (pmDao == null) {
-            pmDao = getDao(Pm::class.java)
+        if (aPmDao == null) {
+            aPmDao = getDao(Pm::class.java)
         }
-        return pmDao
+        return aPmDao
     }
 
     @Throws(SQLException::class)

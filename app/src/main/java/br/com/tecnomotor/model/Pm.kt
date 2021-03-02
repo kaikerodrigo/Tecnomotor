@@ -1,12 +1,10 @@
 package br.com.tecnomotor.model
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import com.j256.ormlite.dao.ForeignCollection
-import com.j256.ormlite.field.DatabaseField
-import com.j256.ormlite.field.ForeignCollectionField
+import com.fasterxml.jackson.annotation.*
 import com.j256.ormlite.table.DatabaseTable
 import lombok.*
 import java.io.Serializable
+
 
 @AllArgsConstructor
 @Data
@@ -16,83 +14,91 @@ import java.io.Serializable
 @Setter
 @SuppressWarnings("serial")
 @ToString
+@JsonPropertyOrder(
+        "id",
+        "modulos",
+        "montadora",
+        "sistema",
+        "tipoSistema",
+        "veiculo",
+        "motorizacao",
+        "veiculoMotorizacao",
+        "anoInicial",
+        "anoFinal",
+        "posConector",
+        "moduloBusca",
+        "moduloVirtual",
+        "aplicacaoConectorList",
+        "rastherPc",
+        "manualtec",
+        "versaoInicial"
+)
 @DatabaseTable(tableName = "TBL_PM")
 class Pm : Serializable {
-    @DatabaseField(id = true, columnName = "ID")
-    var id: Int? = 0
 
-    @DatabaseField(
-        columnName = "MODULOS_ID",
-        foreign = true,
-        foreignAutoRefresh = true,
-        defaultValue = "INTEGER REFERENCES TBL_MODULOS(MODULO_ID) ON DELETE CASCADE"
-    )
+    @JsonProperty("id")
+    var id: Int? = null
+
+    @JsonProperty("modulos")
     var modulos: Modulos? = null
 
-    @DatabaseField(
-        columnName = "MONTADORA_ID",
-        foreign = true,
-        foreignAutoRefresh = true,
-        defaultValue = "INTEGER REFERENCES TBL_MONTADORA(MONTADORA_ID) ON DELETE CASCADE"
-    )
+    @JsonProperty("montadora")
     var montadora: Montadora? = null
 
-    @DatabaseField(
-        columnName = "SISTEMA_ID",
-        foreign = true,
-        foreignAutoRefresh = true,
-        defaultValue = "INTEGER REFERENCES TBL_SISTEMA(SISTEMA_ID) ON DELETE CASCADE"
-    )
+    @JsonProperty("sistema")
     var sistema: Sistema? = null
 
-    @DatabaseField(
-        columnName = "TIPO_SISTEMA_ID",
-        foreign = true,
-        foreignAutoRefresh = true,
-        defaultValue = "INTEGER REFERENCES TBL_TIPO_SISTEMA(TIPO_SISTEMA_ID) ON DELETE CASCADE"
-    )
+    @JsonProperty("tipoSistema")
     var tipoSistema: TipoSistema? = null
 
-    @DatabaseField(
-        columnName = "VEICULO_ID",
-        foreign = true,
-        foreignAutoRefresh = true,
-        defaultValue = "INTEGER REFERENCES TBL_VEICULO(VEICULO_ID) ON DELETE CASCADE"
-    )
+    @JsonProperty("veiculo")
     var veiculo: Veiculo? = null
 
-    @DatabaseField(
-        columnName = "MOTORIZACAO_ID",
-        foreign = true,
-        foreignAutoRefresh = true,
-        defaultValue = "INTEGER REFERENCES TBL_MOTORIZACAO(MOTORIZACAO_ID) ON DELETE CASCADE"
-    )
+    @JsonProperty("motorizacao")
     var motorizacao: Motorizacao? = null
 
-    @DatabaseField(columnName = "VEICULO_MOTORIZACAO")
+    @JsonProperty("veiculoMotorizacao")
     var veiculoMotorizacao: String? = null
 
-    @DatabaseField(columnName = "ANO_INICIAL")
-    var anoInicial: Int? = 0
+    @JsonProperty("anoInicial")
+    var anoInicial: Int? = null
 
-    @DatabaseField(columnName = "ANO_FINAL")
-    var anoFinal: Int? = 0
+    @JsonProperty("anoFinal")
+    var anoFinal: Int? = null
 
-    @DatabaseField(columnName = "POS_CONECTOR")
+    @JsonProperty("posConector")
     var posConector: String? = null
 
-    @DatabaseField(columnName = "MODULO_BUSCA")
-    var moduloBusca: Boolean? = false
+    @JsonProperty("moduloBusca")
+    var moduloBusca: Boolean? = null
 
-    @DatabaseField(columnName = "MODULO_VIRTUAL")
-    var moduloVirtual: Boolean? = false
+    @JsonProperty("moduloVirtual")
+    var moduloVirtual: Boolean? = null
 
-    @DatabaseField(columnName = "RASTHER_PC")
-    var rastherPc: Boolean? = false
+    @JsonProperty("aplicacaoConectorList")
+    var aplicacaoConectorList: List<AplicacaoConectorList>? = null
 
-    @DatabaseField(columnName = "MANUAL_TEC")
-    var manualtec: Boolean? = false
+    @JsonProperty("rastherPc")
+    var rastherPc: Boolean? = null
 
-    @DatabaseField(columnName = "VERSAO_INICIAL")
-    var versaoInicial: Int? = 0
+    @JsonProperty("manualtec")
+    var manualtec: Boolean? = null
+
+    @JsonProperty("versaoInicial")
+    var versaoInicial: Int? = null
+
+    @JsonIgnore
+    private val additionalProperties: MutableMap<String, Any> = HashMap()
+
+    @JsonAnyGetter
+    fun getAdditionalProperties(): Map<String, Any>? {
+        return additionalProperties
+    }
+
+    @JsonAnySetter
+    fun setAdditionalProperty(name: String, value: Any) {
+        additionalProperties[name] = value
+    }
+
+
 }

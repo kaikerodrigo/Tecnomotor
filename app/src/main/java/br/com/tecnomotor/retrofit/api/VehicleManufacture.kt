@@ -18,17 +18,17 @@ class VehicleManufacture {
     val TAG: String = VehicleManufacture::class.java.simpleName
 
     fun getVehicleManufacture(
-        listRecyclerView: RecyclerView,
-        context: Context,
-        textInputEditText: TextInputEditText,
-        pmType: String
+            listRecyclerView: RecyclerView,
+            context: Context,
+            textInputEditText: TextInputEditText,
+            pmType: String
     ) {
         val params: MutableMap<String, String> = HashMap()
         params["pm.type"] = pmType
 
         val call = BasicClient<VehicleManufactureInterface>(URL_INIT)
-            .create(VehicleManufactureInterface::class.java)
-            .getVehicleManufacture(params)
+                .create(VehicleManufactureInterface::class.java)
+                .getVehicleManufacture(params)
         try {
             call.enqueue(object : Callback<List<Montadora>> {
                 override fun onFailure(call: Call<List<Montadora>>, t: Throwable) {
@@ -36,13 +36,14 @@ class VehicleManufacture {
                 }
 
                 override fun onResponse(
-                    call: Call<List<Montadora>>,
-                    response: Response<List<Montadora>>
+                        call: Call<List<Montadora>>,
+                        response: Response<List<Montadora>>
                 ) {
                     if (response.isSuccessful) {
                         val list = response.body()
                         if (!list.isNullOrEmpty()) {
                             val montadoraDao = MontadoraDaoImpl(context)
+
                             list.forEach {
                                 val listAll = montadoraDao.all
                                 if (!listAll.isNullOrEmpty()) {
@@ -51,23 +52,27 @@ class VehicleManufacture {
                                     } else {
                                         montadoraDao.update(it)
                                     }
+                                } else {
+                                    montadoraDao.insert(it)
                                 }
                             }
 
+                            montadoraDao.close()
+
                             val stringFilterAdapterVehicleManufacture =
-                                StringFilterAdapterVehicleManufacture(
-                                    list,
-                                    context,
-                                    textInputEditText
-                                )
+                                    StringFilterAdapterVehicleManufacture(
+                                            list,
+                                            context,
+                                            textInputEditText
+                                    )
                             listRecyclerView.adapter = stringFilterAdapterVehicleManufacture
                         } else {
                             val stringFilterAdapterVehicleManufacture =
-                                StringFilterAdapterVehicleManufacture(
-                                    ArrayList(),
-                                    context,
-                                    textInputEditText
-                                )
+                                    StringFilterAdapterVehicleManufacture(
+                                            ArrayList(),
+                                            context,
+                                            textInputEditText
+                                    )
                             listRecyclerView.adapter = stringFilterAdapterVehicleManufacture
                         }
                     }

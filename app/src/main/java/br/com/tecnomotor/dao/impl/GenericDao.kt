@@ -33,6 +33,7 @@ abstract class GenericDao<E>(context: Context?, private val type: Class<E>) : Da
             null
         }
     }
+
     fun insert(obj: E) {
         try {
             dao!!.create(obj)
@@ -61,7 +62,7 @@ abstract class GenericDao<E>(context: Context?, private val type: Class<E>) : Da
         try {
             val list = all
             if (list != null) {
-                for (it in list){
+                for (it in list) {
                     dao!!.delete(it)
                     Log.i("Delete object", list.toString())
                 }
