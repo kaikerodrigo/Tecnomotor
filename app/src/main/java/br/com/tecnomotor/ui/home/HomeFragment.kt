@@ -115,6 +115,26 @@ class HomeFragment : Fragment() {
             edtTypeVehicleManufacturer.setText(root.context.getString(R.string.type_vehicle_manufacturer_place_holder))
             edtVehicleManufacturer.setText(root.context.getString(R.string.vehicle_manufacturer_place_holder))
 
+            globalMethods.saveSharedPreferences(
+                spLastChoice,
+                LAST_CHOICE_TYPE_VEHICLE_MANUFACTURE,
+                ""
+            )
+
+
+            globalMethods.saveSharedPreferences(
+                spLastChoice,
+                LAST_CHOICE_VEHICLE_MANUFACTURE,
+                ""
+            )
+
+            globalMethods.saveSharedPreferences(
+                spLastChoice,
+                LAST_CHOICE_VEHICLE,
+                ""
+            )
+
+            edtVehicle.setText(root.context.getString(R.string.vehicle_place_holder))
             if (globalMethods.isNetworkConnected(root.context)) {
                 TypeVehicleManufacture().getTypeVehicleManufacture(
                     listRecyclerView,
@@ -183,6 +203,18 @@ class HomeFragment : Fragment() {
             edtVehicleManufacturer.setText(root.context.getString(R.string.vehicle_manufacturer_place_holder))
             edtVehicle.setText(root.context.getString(R.string.vehicle_place_holder))
 
+            globalMethods.saveSharedPreferences(
+                spLastChoice,
+                LAST_CHOICE_VEHICLE_MANUFACTURE,
+                ""
+            )
+
+            globalMethods.saveSharedPreferences(
+                spLastChoice,
+                LAST_CHOICE_VEHICLE,
+                ""
+            )
+
             VehicleManufacture().getVehicleManufacture(
                 listRecyclerView,
                 root.context,
@@ -196,6 +228,12 @@ class HomeFragment : Fragment() {
                 root.context.getString(R.string.vehicle_manufacturer_place_holder)
             edtVehicle.setText(root.context.getString(R.string.vehicle_place_holder))
 
+            globalMethods.saveSharedPreferences(
+                spLastChoice,
+                LAST_CHOICE_VEHICLE,
+                ""
+            )
+            
             VehicleModel().getVehicleModel(
                 listRecyclerView,
                 root.context,
